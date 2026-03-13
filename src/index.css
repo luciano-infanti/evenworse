@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --color-zinc-850: #1f1f23;
+  --color-accent: #c8a94e;
+  --color-accent-dim: #a38a3a;
+  --color-positive: #4ade80;
+  --color-surface: #18181b;
+  --color-card: #27272a;
+  --color-card-border: #3f3f46;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-zinc-200 font-sans antialiased;
+}
