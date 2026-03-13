@@ -41,7 +41,6 @@ export default function ProgressBar({
             const segLevel = i + 1;
             const isComplete = segLevel <= level && !(segLevel === level && hasPartial);
             const isPartial = segLevel === level && hasPartial;
-            const isEmpty = segLevel > level;
 
             let bg = "bg-white/10";
             if (isComplete) bg = "bg-positive";
