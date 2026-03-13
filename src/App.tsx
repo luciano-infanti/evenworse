@@ -188,7 +188,7 @@ export default function App() {
         </Section>
 
         {/* Outfits */}
-        <Section id="outfits" title="Outfits (+32)">
+        <Section id="outfits" title="Outfits (+55)">
           <div className="grid grid-cols-4 gap-3 sm:grid-cols-5 md:grid-cols-6">
             {outfits.map((name) => (
               <OutfitCard key={name} label={name} src={outfitImages[name]} />
@@ -202,7 +202,7 @@ export default function App() {
         </Section>
 
         {/* Mounts */}
-        <Section id="mounts" title="Montarias (+32)">
+        <Section id="mounts" title="Montarias (+44)">
           <div className="grid grid-cols-4 gap-3 sm:grid-cols-5 md:grid-cols-6">
             {mounts.map((name) => (
               <OutfitCard
@@ -230,6 +230,19 @@ export default function App() {
           <div className="flex flex-wrap gap-2">
             {bossPoints.rareComplete.map((boss) => (
               <BossTag key={boss} name={boss} src={bossImages[boss]} />
+            ))}
+          </div>
+          <h3 className="mt-4 mb-2 text-sm font-semibold text-accent-dim uppercase tracking-wide">
+            Outros com 3 ou 4 kills
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {bossPoints.bossesWithKills.map((b) => (
+              <BossTag
+                key={b.name}
+                name={b.name}
+                src={bossImages[b.name]}
+                kills={b.kills}
+              />
             ))}
           </div>
           <p className="mt-3 text-sm text-zinc-500 italic">

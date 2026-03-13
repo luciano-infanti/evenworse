@@ -3,9 +3,10 @@ import { useState } from "react";
 interface BossTagProps {
   name: string;
   src?: string;
+  kills?: string;
 }
 
-export default function BossTag({ name, src }: BossTagProps) {
+export default function BossTag({ name, src, kills }: BossTagProps) {
   const [failed, setFailed] = useState(false);
 
   return (
@@ -22,6 +23,11 @@ export default function BossTag({ name, src }: BossTagProps) {
         <span className="ml-3" />
       )}
       {name}
+      {kills && (
+        <span className="rounded bg-positive/20 px-1.5 py-0.5 text-[10px] font-medium">
+          {kills}
+        </span>
+      )}
     </span>
   );
 }

@@ -9,6 +9,10 @@ export const outfitImages: Record<string, string> = {
   "Gladiator": `${RUBINOT_WIKI}/outfits/2504/full.gif`,
   "Nordic Santa": `${RUBINOT_WIKI}/outfits/2555/full.gif`,
   "King Highlord": `${RUBINOT_WIKI}/outfits/2675/full.apng`,
+  "Bloodbreaker": `${RUBINOT_WIKI}/outfits/2638/full.gif`,
+  "Saintblade": `${RUBINOT_WIKI}/outfits/2665/full.gif`,
+  "Revenant": `${RUBINOT_WIKI}/outfits/1322/full.gif`,
+  "Decaying Defender": `${RUBINOT_WIKI}/outfits/1662/full.gif`,
 };
 
 export const mountImages: Record<string, string> = {
@@ -42,6 +46,19 @@ export const bossImages: Record<string, string> = {
   "Yaga the Crone": `${WIKI}/2/25/Yaga_the_Crone.gif`,
   "Zarabustor": `${WIKI}/b/b0/Zarabustor.gif`,
   "Zevelon Duskbringer": `${WIKI}/1/15/Zevelon_Duskbringer.gif`,
+  "The Hungerer": `${WIKI}/c/ce/The_Hungerer.gif`,
+  "Countless Sorrow": `${WIKI}/1/16/Countess_Sorrow.gif`,
+  "Foreman Kneebitter": `${WIKI}/4/46/Foreman_Kneebiter.gif`,
+  "Gravelord Oshuran": `${WIKI}/7/75/Gravelord_Oshuran.gif`,
+  "Sir Valocrest": `${WIKI}/3/32/Sir_Valorcrest.gif`,
+  "Hatebreeder": `${WIKI}/3/33/Hatebreeder.gif`,
+  "Grand Mother Foulscale": `${WIKI}/8/8e/Grand_Mother_Foulscale.gif`,
+  "Man in the cave": `${WIKI}/9/93/Man_In_The_Cave.gif`,
+  "The Handmaiden": `${WIKI}/7/73/The_Handmaiden.gif`,
+  "Captain Jones": `${WIKI}/5/54/Captain_Jones.gif`,
+  "General Muriu": `${WIKI}/0/0b/General_Murius.gif`,
+  "The Welter": `${WIKI}/a/a3/The_Welter.gif`,
+  "Xenia": `${WIKI}/1/1f/Xenia.gif`,
 };
 
 export const weaponImages: Record<string, string> = {

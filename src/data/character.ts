@@ -10,7 +10,7 @@ export const basics = [
   { label: "VIP", value: "1.500 dias" },
   { label: "Exalted Dust", value: "Max" },
   { label: "Charm Expansion", value: "✓" },
-  { label: "Linked Tasks", value: "✓" },
+  { label: "Linked Tasks", value: "24" },
 ];
 
 export const store = [
@@ -81,6 +81,10 @@ export const outfits = [
   "Gladiator",
   "Nordic Santa",
   "King Highlord",
+  "Bloodbreaker",
+  "Saintblade",
+  "Revenant",
+  "Decaying Defender",
 ];
 
 export const auras = ["Frozen", "Crimsonevil", "Sol'Zarith"];
@@ -102,6 +106,11 @@ export const mounts = [
 
 export const battlePass = "Todos completos";
 
+export interface BossWithKills {
+  name: string;
+  kills: string;
+}
+
 export const bossPoints = {
   total: "4.990 pontos",
   rareComplete: [
@@ -120,6 +129,21 @@ export const bossPoints = {
     "Yaga the Crone",
     "Zarabustor",
     "Zevelon Duskbringer",
+  ],
+  bossesWithKills: [
+    { name: "The Hungerer", kills: "4/5" },
+    { name: "Countless Sorrow", kills: "4/5" },
+    { name: "Foreman Kneebitter", kills: "4/5" },
+    { name: "Gravelord Oshuran", kills: "4/5" },
+    { name: "Sir Valocrest", kills: "4/5" },
+    { name: "Hatebreeder", kills: "3/5" },
+    { name: "Grand Mother Foulscale", kills: "3/5" },
+    { name: "Man in the cave", kills: "3/5" },
+    { name: "The Handmaiden", kills: "3/5" },
+    { name: "Captain Jones", kills: "3/5" },
+    { name: "General Muriu", kills: "3/5" },
+    { name: "The Welter", kills: "3/5" },
+    { name: "Xenia", kills: "3/5" },
   ],
   note: "Vários outros com 3 ou 4 kills.",
 };
