@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { saleItems } from "../data/items";
 import { itemImages, PLACEHOLDER_DOT } from "../data/images";
 
+const SOLD_ITEMS = new Set([
+  "Instagram Backpack",
+  "Green Demon Helmet",
+  "Green Demon Slippers",
+  "Green Demon Legs",
+]);
+
 function formatPrice(kk: number): string {
   const rounded = Math.round(kk * 100) / 100;
   if (rounded >= 1) return `${rounded}kk`;
@@ -65,7 +72,7 @@ function ItemsPage() {
         <div className="overflow-x-auto rounded-lg border border-card-border bg-card">
           <table className="w-full table-fixed">
             <colgroup>
-              <col style={{ width: 48 }} />
+              <col style={{ width: 64 }} />
               <col />
               <col style={{ width: 56 }} />
               <col style={{ width: 72 }} />
@@ -84,6 +91,7 @@ function ItemsPage() {
               {filteredItems.map((item) => {
                 const hasPrice = item.unitPriceKk != null;
                 const total = hasPrice ? item.quantity * item.unitPriceKk! : 0;
+                const isSold = SOLD_ITEMS.has(item.name);
                 return (
                   <tr
                     key={item.name}
@@ -93,7 +101,7 @@ function ItemsPage() {
                       <img
                         src={itemImages[item.name] || PLACEHOLDER_DOT}
                         alt={item.name}
-                        className="h-8 w-8 sm:h-10 sm:w-10 shrink-0 object-contain"
+                        className={`h-14 w-14 shrink-0 object-contain ${isSold ? "grayscale opacity-80" : ""}`}
                         loading="lazy"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
@@ -103,19 +111,25 @@ function ItemsPage() {
                     </td>
                     <td className="min-w-0 max-w-0 p-2 sm:p-3">
                       <span
-                        className="block truncate text-sm text-zinc-200"
+                        className={`block truncate text-sm ${isSold ? "line-through text-zinc-500" : "text-zinc-200"}`}
                         title={item.name}
                       >
                         {item.name}
                       </span>
                     </td>
-                    <td className="whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm text-zinc-400">
+                    <td
+                      className={`whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm ${isSold ? "line-through text-zinc-500" : "text-zinc-400"}`}
+                    >
                       {item.quantity}x
                     </td>
-                    <td className="whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm text-zinc-400">
+                    <td
+                      className={`whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm ${isSold ? "line-through text-zinc-500" : "text-zinc-400"}`}
+                    >
                       {hasPrice ? formatPrice(item.unitPriceKk!) : "TBD"}
                     </td>
-                    <td className="whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm font-medium text-accent">
+                    <td
+                      className={`whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm font-medium ${isSold ? "line-through text-zinc-500" : "text-accent"}`}
+                    >
                       {hasPrice ? formatPrice(total) : "TBD"}
                     </td>
                   </tr>
