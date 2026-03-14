@@ -40,7 +40,7 @@ export const saleItems: SaleItem[] = [
   { name: "Horn", quantity: 1, unitPriceKk: 150, category: "rare" },
   { name: "Rubini Special Tapestry", quantity: 1, unitPriceKk: 300, category: "decoration" },
   { name: "Key to Knowledge", quantity: 1, unitPriceKk: 75, category: "rare" },
-  { name: "Orshabaal's Brain", quantity: 2, unitPriceKk: 100, category: "rare" },
+  { name: "Orshabaal's Brain", quantity: 1, unitPriceKk: 100, category: "rare" },
   { name: "Morgaroth's Heart", quantity: 2, unitPriceKk: 100, category: "rare" },
   // New items
   { name: "Goo Armor", quantity: 1, category: "equipment" },

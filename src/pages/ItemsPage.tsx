@@ -9,6 +9,7 @@ const SOLD_ITEMS = new Set([
   "Green Demon Slippers",
   "Green Demon Legs",
   "Triple Bolt Crossbow",
+  "Thunder Hammer",
 ]);
 
 function formatPrice(kk: number): string {
