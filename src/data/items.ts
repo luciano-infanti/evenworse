@@ -61,8 +61,6 @@ export const saleItems: SaleItem[] = [
   { name: "Social Backpack", quantity: 1, unitPriceKk: 400, category: "backpack" },
   { name: "Instagram Backpack", quantity: 1, unitPriceKk: 500, category: "backpack" },
   { name: "Christmas Backpack", quantity: 1, unitPriceKk: 2000, category: "backpack" },
-  // POI boss items
-  { name: "Demon Armor", quantity: 1, category: "equipment" },
   // Additional items
   { name: "Green Demon Legs", quantity: 1, unitPriceKk: 1000, category: "equipment" },
   { name: "Green Demon Helmet", quantity: 1, unitPriceKk: 800, category: "equipment" },

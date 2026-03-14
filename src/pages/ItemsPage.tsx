@@ -1,10 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { saleItems } from "../data/items";
-import { rares } from "../data/rares";
 import { itemImages, PLACEHOLDER_DOT } from "../data/images";
-
-type FilterCategory = "all" | "rare" | "equipment" | "backpack" | "decoration" | "other" | "toy";
 
 function formatPrice(kk: number): string {
   const rounded = Math.round(kk * 100) / 100;
@@ -14,24 +11,21 @@ function formatPrice(kk: number): string {
 
 function ItemsPage() {
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState<FilterCategory>("all");
 
   const filteredItems = useMemo(() => {
     let items = saleItems;
-
-    if (filter === "rare") {
-      items = items.filter((i) => rares.includes(i.name));
-    } else if (filter !== "all") {
-      items = items.filter((i) => i.category === filter);
-    }
 
     if (search.trim()) {
       const q = search.toLowerCase().trim();
       items = items.filter((i) => i.name.toLowerCase().includes(q));
     }
 
-    return items;
-  }, [search, filter]);
+    return [...items].sort((a, b) => {
+      const priceA = a.unitPriceKk ?? -1;
+      const priceB = b.unitPriceKk ?? -1;
+      return priceB - priceA;
+    });
+  }, [search]);
 
   const grandTotal = useMemo(() => {
     const sum = filteredItems.reduce(
@@ -58,39 +52,14 @@ function ItemsPage() {
       <main className="mx-auto max-w-4xl px-4 py-6">
         <h1 className="mb-6 text-2xl font-bold text-zinc-100">Items à Venda</h1>
 
-        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-6">
           <input
             type="search"
             placeholder="Buscar item..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="rounded-lg border border-card-border bg-card px-4 py-2.5 text-sm text-zinc-200 placeholder-zinc-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+            className="w-full rounded-lg border border-card-border bg-card px-4 py-2.5 text-sm text-zinc-200 placeholder-zinc-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
           />
-          <div className="flex flex-wrap gap-2">
-            {(
-              [
-                { id: "all" as const, label: "Todos" },
-                { id: "rare" as const, label: "Rares" },
-                { id: "equipment" as const, label: "Equipamentos" },
-                { id: "backpack" as const, label: "Backpacks" },
-                { id: "decoration" as const, label: "Decoração" },
-                { id: "other" as const, label: "Outros" },
-                { id: "toy" as const, label: "Rubini Toys" },
-              ] as const
-            ).map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => setFilter(id)}
-                className={`rounded-full px-4 py-2 text-xs font-medium transition-colors ${
-                  filter === id
-                    ? "bg-accent text-zinc-900"
-                    : "border border-card-border bg-card text-zinc-400 hover:border-accent/50 hover:text-accent"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
         </div>
 
         <div className="overflow-x-auto rounded-lg border border-card-border bg-card">

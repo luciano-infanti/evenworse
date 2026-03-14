@@ -133,7 +133,7 @@ export const itemImages: Record<string, string> = {
   "Green Demon Legs": `${TIBIAWIKI}/c/c8/Green_Demon_Legs.gif`,
   "Green Demon Helmet": `${TIBIAWIKI}/1/1e/Green_Demon_Helmet.gif`,
   "Molten Plate": `${TIBIAWIKI}/6/6a/Molten_Plate.gif`,
-  "Key 0000": `${TIBIAWIKI}/9/9b/Key_to_Knowledge.gif`,
+  "Key 0000": `${TIBIAWIKI}/c/ce/Key_0000.gif`,
   "Test Vodoo Doll": `${TIBIAWIKI}/1/17/Voodoo_Doll.gif`,
   "Green Demon Slippers": `${TIBIAWIKI}/a/a9/Green_Demon_Slippers.gif`,
   "Yellow Rose": `${TIBIAWIKI}/7/75/Yellow_Rose.gif`,
