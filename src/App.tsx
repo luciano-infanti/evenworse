@@ -44,6 +44,7 @@ import {
   weaponImages,
   storeInboxImages,
 } from "./data/images";
+import { Link } from "react-router-dom";
 
 function TableOfContents() {
   return (
@@ -51,7 +52,13 @@ function TableOfContents() {
       <h2 className="mb-3 text-xs font-semibold tracking-widest text-zinc-500 uppercase">
         Navegação
       </h2>
-      <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+      <div className="flex flex-wrap gap-x-4 gap-y-1.5 items-center">
+        <Link
+          to="/items"
+          className="text-sm text-zinc-400 transition-colors hover:text-accent"
+        >
+          Items à Venda
+        </Link>
         {sections.map((s) => (
           <a
             key={s.id}
