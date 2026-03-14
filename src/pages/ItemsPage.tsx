@@ -63,14 +63,21 @@ function ItemsPage() {
         </div>
 
         <div className="overflow-x-auto rounded-lg border border-card-border bg-card">
-          <table className="w-full min-w-[500px]">
+          <table className="w-full table-fixed">
+            <colgroup>
+              <col style={{ width: 48 }} />
+              <col />
+              <col style={{ width: 56 }} />
+              <col style={{ width: 72 }} />
+              <col style={{ width: 72 }} />
+            </colgroup>
             <thead>
               <tr className="border-b border-card-border text-left text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                <th className="p-3"></th>
-                <th className="p-3">Item</th>
-                <th className="p-3 text-right">Qtd</th>
-                <th className="p-3 text-right">Preço</th>
-                <th className="p-3 text-right">Total</th>
+                <th className="p-2 sm:p-3"></th>
+                <th className="p-2 sm:p-3">Item</th>
+                <th className="p-2 sm:p-3 text-right">Qtd</th>
+                <th className="p-2 sm:p-3 text-right whitespace-nowrap">Preço</th>
+                <th className="p-2 sm:p-3 text-right whitespace-nowrap">Total</th>
               </tr>
             </thead>
             <tbody>
@@ -82,11 +89,11 @@ function ItemsPage() {
                     key={item.name}
                     className="border-b border-card-border/50 transition-colors hover:bg-white/[0.02]"
                   >
-                    <td className="p-3">
+                    <td className="p-2 sm:p-3">
                       <img
                         src={itemImages[item.name] || PLACEHOLDER_DOT}
                         alt={item.name}
-                        className="h-10 w-10 object-contain"
+                        className="h-8 w-8 sm:h-10 sm:w-10 shrink-0 object-contain"
                         loading="lazy"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
@@ -94,14 +101,21 @@ function ItemsPage() {
                         }}
                       />
                     </td>
-                    <td className="p-3 text-sm text-zinc-200">{item.name}</td>
-                    <td className="p-3 text-right font-mono text-sm text-zinc-400">
+                    <td className="min-w-0 max-w-0 p-2 sm:p-3">
+                      <span
+                        className="block truncate text-sm text-zinc-200"
+                        title={item.name}
+                      >
+                        {item.name}
+                      </span>
+                    </td>
+                    <td className="whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm text-zinc-400">
                       {item.quantity}x
                     </td>
-                    <td className="p-3 text-right font-mono text-sm text-zinc-400">
+                    <td className="whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm text-zinc-400">
                       {hasPrice ? formatPrice(item.unitPriceKk!) : "TBD"}
                     </td>
-                    <td className="p-3 text-right font-mono text-sm font-medium text-accent">
+                    <td className="whitespace-nowrap p-2 sm:p-3 text-right font-mono text-sm font-medium text-accent">
                       {hasPrice ? formatPrice(total) : "TBD"}
                     </td>
                   </tr>
